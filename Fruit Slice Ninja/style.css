@@ -1,0 +1,195 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     touch-action: manipulation;
+     user-select: none;
+     -webkit-tap-highlight-color: transparent;
+ }
+ 
+ body {
+     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+     background: linear-gradient(to bottom, #0a3d62, #1e5799);
+     height: 100vh;
+     overflow: hidden;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     color: white;
+ }
+ 
+ #game-container {
+     position: relative;
+     width: 100%;
+     height: 85vh;
+     overflow: hidden;
+ }
+ 
+ #score-container {
+     font-size: 28px;
+     margin-bottom: 15px;
+     text-align: center;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+     display: flex;
+     justify-content: space-between;
+     width: 90%;
+     max-width: 500px;
+ }
+ 
+ #score, #lives {
+     background: rgba(0, 0, 0, 0.3);
+     padding: 10px 20px;
+     border-radius: 20px;
+     min-width: 120px;
+ }
+ 
+ #score {
+     color: #FFD700;
+ }
+ 
+ #lives {
+     color: #FF5252;
+     display: flex;
+     align-items: center;
+     gap: 5px;
+ }
+ 
+ #game-over, #start-screen {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.85);
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     z-index: 100;
+     text-align: center;
+     padding: 20px;
+ }
+ 
+ #start-screen {
+     background: rgba(0, 0, 0, 0.7);
+ }
+ 
+ h1 {
+     font-size: 42px;
+     margin-bottom: 20px;
+     color: #FFD700;
+     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+ }
+ 
+ h2 {
+     font-size: 36px;
+     margin-bottom: 30px;
+     color: #FF5252;
+ }
+ 
+ p {
+     font-size: 20px;
+     margin-bottom: 25px;
+     max-width: 80%;
+     line-height: 1.5;
+ }
+ 
+ button {
+     background: linear-gradient(to bottom, #FFD700, #FF9800);
+     color: #333;
+     border: none;
+     padding: 15px 30px;
+     font-size: 20px;
+     border-radius: 50px;
+     cursor: pointer;
+     margin-top: 20px;
+     font-weight: bold;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+     transition: all 0.2s;
+ }
+ 
+ button:active {
+     transform: scale(0.95);
+ }
+ 
+ .fruit {
+     position: absolute;
+     font-size: 40px;
+     text-align: center;
+     user-select: none;
+     transition: transform 0.2s;
+     z-index: 10;
+     will-change: transform, top, left;
+ }
+ 
+ .bomb {
+     font-size: 35px;
+ }
+ 
+ .sliced {
+     opacity: 0;
+     transition: opacity 0.3s;
+     pointer-events: none;
+ }
+ 
+ .cut-effect {
+     position: absolute;
+     width: 40px;
+     height: 4px;
+     background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+     border-radius: 2px;
+     pointer-events: none;
+     z-index: 15;
+     transform-origin: center;
+     box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.6);
+     will-change: transform, opacity;
+ }
+ 
+ .particle {
+     position: absolute;
+     font-size: 20px;
+     pointer-events: none;
+     z-index: 15;
+     opacity: 0;
+     will-change: transform, opacity;
+ }
+ 
+ #instructions {
+     margin-top: 20px;
+     font-size: 16px;
+     color: rgba(255, 255, 255, 0.8);
+     text-align: center;
+     max-width: 80%;
+ }
+ 
+ .juice {
+     position: absolute;
+     background: rgba(255, 165, 0, 0.6);
+     border-radius: 50%;
+     pointer-events: none;
+     z-index: 5;
+     will-change: transform, opacity;
+ }
+ 
+ #combo {
+     position: absolute;
+     font-size: 24px;
+     color: #FFD700;
+     font-weight: bold;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+     opacity: 0;
+     z-index: 25;
+     pointer-events: none;
+     will-change: transform, opacity;
+ }
+ 
+ .missed {
+     animation: missedAnimation 0.5s forwards;
+ }
+ 
+ @keyframes missedAnimation {
+     0% { transform: scale(1); }
+     50% { transform: scale(1.1); }
+     100% { opacity: 0; transform: scale(0.5); }
+ }
