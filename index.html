@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGameRepo - All Games</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 3rem;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientAnim 5s ease infinite;
+    }
+
+    @keyframes gradientAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* her kart en az 250px */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+    }
+
+    .card {
+      background: #f0f0f0;
+      border-radius: 12px;
+      -webkit-tap-highlight-color: transparent; /* iOS ve Android */
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    .card-title {
+      text-align: center;
+      padding: 15px;
+      font-weight: bold;
+      font-size: 1rem;
+      background-color: #f0f0f0;
+    }
+
+    .bottominf {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 3px solid #DDDDDD;
+    background-color: #EEEEEE;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    }
+    
+    .bottominf h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    }
+    
+    .bottominf .license-text {
+    color: #ef6c00;
+    margin-bottom: 15px;
+    }
+    
+    .bottominf a {
+    text-decoration: none;
+    color: #0077cc;
+    }
+    
+    .bottominf a:hover {
+    text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AGame Repo</h1>
+
+  <div class="gallery" id="gallery"></div>
+
+  <div class="bottominf">
+  <h2>License</h2>
+  <p class="license-text">This project is available under the MIT license.</p>
+  <p>
+  <a href="https://github.com/ferhatgnlts/AGameRepo" target="_blank">GitHub Repo</a> | <a href="https://github.com/ferhatgnlts/AGameRepo/blob/main/LICENSE" >MIT License</a>
+  <br><span>Ferhat Gönültaş • AGameRepo © 2025</span>
+  </p>
+  </div>
+
+  <script>
+    const games = [
+      { title: "3D House", thumb: "Img/Game1.png", path: "3D House/index.html" },
+      { title: "Glow Hockey", thumb: "Img/Game2.png", path: "Glow Hockey/index.html" },
+      { title: "Perfect Circle", thumb: "Img/Game3.png", path: "Perfect Circle/index.html" },
+      { title: "Fruit Slice Ninja", thumb: "Img/Game4.png", path: "Fruit Slice Ninja/index.html" },
+      { title: "Drawing", thumb: "Img/Game5.png", path: "Drawing/index.html" },
+      { title: "Tower Defense", thumb: "Img/Game6.png", path: "Tower Defense/index.html" }
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    games.forEach(game => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const img = document.createElement('img');
+      img.src = game.thumb;
+      img.alt = game.title;
+
+      const title = document.createElement('div');
+      title.className = 'card-title';
+      title.textContent = game.title;
+
+      card.appendChild(img);
+      card.appendChild(title);
+
+      card.addEventListener('click', () => {
+        window.location.href = game.path; // Aynı sekmede açılıyor
+      });
+
+      gallery.appendChild(card);
+    });
+  </script>
+</body>
+</html>
