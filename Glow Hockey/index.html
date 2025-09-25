@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+    <title>AGameRepo - Glow Hockey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="controls">
+        <button id="restart-btn" class="control-btn">Restart</button>
+        <button id="pause-btn" class="control-btn">Pause</button>
+    </div>
+    
+    <div class="score-container">
+        <div class="score-section ai-score-section">
+            <div class="player-name">COMPUTER</div>
+            <div class="score" id="aiScore">0</div>
+        </div>
+        
+        <div class="score-section player-score-section">
+            <div class="player-name">PLAYER</div>
+            <div class="score" id="playerScore">0</div>
+        </div>
+    </div>
+    
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div class="game-status" id="gameStatus">Touch the ball to start!</div>
+    </div>
+    
+    <div class="game-over" id="gameOver">
+        <h2 id="winnerText">Game Over</h2>
+        <button id="restart-game" class="restart-btn">Play Again</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
