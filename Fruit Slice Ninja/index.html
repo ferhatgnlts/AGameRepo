@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+     <title>AGameRepo - Fruit Slice Ninja</title>
+     <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+     <div id="score-container">
+         <div id="lives">❤️ x 3</div>
+         <div id="score">Score: 0</div>
+     </div>
+     
+     <div id="game-container"></div>
+     <div id="combo">Combo x2!</div>
+     
+     <div id="start-screen">
+         <h1>🍉 Fruit Slice Ninja 🍍</h1>
+         <p>Slice fruits to earn points! 🎯<br>Avoid the bombs! 💣</p>
+         <button id="start-button">PLAY</button>
+         <div id="instructions">
+             Slice fruits with your finger, avoid bombs!<br>
+             Fruits will jump from the bottom - don’t miss them!
+         </div>
+     </div>
+     
+     <div id="game-over" style="display: none;">
+         <h2>GAME OVER!</h2>
+         <p>Your Score: <span id="final-score">0</span></p>
+         <button id="restart-button">TRY AGAIN</button>
+     </div>
+     
+     <script src="script.js"></script>
+ </body>
+ </html>
