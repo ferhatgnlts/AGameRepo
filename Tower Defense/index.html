@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+    <title>AGameRepo - Tower Defense</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="attack-range"></div>
+        <div id="tower"></div>
+        <div id="score">Score: 0</div>
+        <div id="gold">Gold: 0</div>
+        <button id="upgrade-btn">Upgrades</button>
+        <div id="upgrade-menu">
+            <h2>Tower Upgrades</h2>
+            <div class="upgrade-option" onclick="buyUpgrade('range')">
+                Increase Range <span class="upgrade-cost" id="range-cost">50</span>
+            </div>
+            <div class="upgrade-option" onclick="buyUpgrade('damage')">
+                Increase Damage <span class="upgrade-cost" id="damage-cost">75</span>
+            </div>
+            <div class="upgrade-option" onclick="buyUpgrade('speed')">
+                Faster Shooting <span class="upgrade-cost" id="speed-cost">100</span>
+            </div>
+            <div class="upgrade-option" onclick="buyUpgrade('double')">
+                Double Shot <span class="upgrade-cost" id="double-cost">150</span>
+            </div>
+            <button id="close-upgrades" style="margin-top: 20px; padding: 8px; width: 100%;">Close</button>
+        </div>
+        <div id="game-over">
+            GAME OVER!
+            <div>Score: <span id="final-score">0</span></div>
+            <div>Gold Earned: <span id="final-gold">0</span></div>
+            <button id="restart-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
