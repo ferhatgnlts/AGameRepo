@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+    <title>AGameRepo - Drawing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">        
+        <div class="canvas-container">
+            <canvas id="drawing-canvas"></canvas>
+        </div>
+        
+        <!-- Floating Toolbar -->
+        <div class="floating-toolbar">
+            <button class="tool-btn active" id="brush-tool" title="Brush">✏️</button>
+            <button class="tool-btn" id="color-tool" title="Colors">🎨</button>
+            <button class="tool-btn" id="brush-size-tool" title="Brush Size">🔍</button>
+            <button class="tool-btn" id="shapes-tool" title="Tools">🛠️</button>
+            <button class="tool-btn" id="actions-tool" title="Actions">⚙️</button>
+        </div>
+        
+        <!-- Color Panel -->
+        <div class="panel" id="color-panel">
+            <div class="panel-header">
+                <div class="panel-title">Color Palette</div>
+                <button class="close-panel">×</button>
+            </div>
+            <div class="color-palette">
+                <div class="color-option active" style="background-color: #000000;" data-color="#000000"></div>
+                <div class="color-option" style="background-color: #ff0000;" data-color="#ff0000"></div>
+                <div class="color-option" style="background-color: #00ff00;" data-color="#00ff00"></div>
+                <div class="color-option" style="background-color: #0000ff;" data-color="#0000ff"></div>
+                <div class="color-option" style="background-color: #ffff00;" data-color="#ffff00"></div>
+                <div class="color-option" style="background-color: #ff00ff;" data-color="#ff00ff"></div>
+                <div class="color-option" style="background-color: #00ffff;" data-color="#00ffff"></div>
+                <div class="color-option" style="background-color: #ffffff;" data-color="#ffffff"></div>
+                <div class="color-option" style="background-color: #ff9500;" data-color="#ff9500"></div>
+                <div class="color-option" style="background-color: #8e44ad;" data-color="#8e44ad"></div>
+            </div>
+            <div class="custom-color-container">
+                <input type="color" id="custom-color" value="#000000">
+                <input type="text" id="custom-color-value" placeholder="#000000" maxlength="7">
+            </div>
+            <div class="slider-container">
+                <span>Opacity:</span>
+                <input type="range" id="opacity-slider" min="10" max="100" value="100">
+                <span id="opacity-value">100%</span>
+            </div>
+        </div>
+        
+        <!-- Brush Size Panel -->
+        <div class="panel" id="brush-size-panel">
+            <div class="panel-header">
+                <div class="panel-title">Brush Settings</div>
+                <button class="close-panel">×</button>
+            </div>
+            <div class="slider-container">
+                <span>Brush Size:</span>
+                <input type="range" id="brush-size" min="1" max="50" value="5">
+                <span id="brush-size-value">5px</span>
+            </div>
+            <div class="slider-container">
+                <span>Hardness:</span>
+                <input type="range" id="brush-hardness" min="1" max="10" value="5">
+                <span id="hardness-value">5</span>
+            </div>
+            <div class="brush-shapes">
+                <button class="shape-btn active" id="brush-round" title="Round Brush">●</button>
+                <button class="shape-btn" id="brush-square" title="Square Brush">■</button>
+                <button class="shape-btn" id="brush-spray" title="Spray Brush">✨</button>
+            </div>
+        </div>
+        
+        <!-- Tools Panel -->
+        <div class="panel" id="tools-panel">
+            <div class="panel-header">
+                <div class="panel-title">Drawing Tools</div>
+                <button class="close-panel">×</button>
+            </div>
+            <div class="tools-grid">
+                <button class="tool-option active" id="brush-option" data-tool="brush">
+                    <span>✏️</span> Brush
+                </button>
+                <button class="tool-option" id="eraser-option" data-tool="eraser">
+                    <span>🧽</span> Eraser
+                </button>
+                <button class="tool-option" id="fill-option" data-tool="fill">
+                    <span>🪣</span> Fill
+                </button>
+                <button class="tool-option" id="line-option" data-tool="line">
+                    <span>📏</span> Line
+                </button>
+                <button class="tool-option" id="rectangle-option" data-tool="rectangle">
+                    <span>⬜</span> Rectangle
+                </button>
+                <button class="tool-option" id="circle-option" data-tool="circle">
+                    <span>⭕</span> Circle
+                </button>
+            </div>
+            <div class="slider-container">
+                <span>Tool Size:</span>
+                <input type="range" id="tool-size" min="1" max="50" value="5">
+                <span id="tool-size-value">5px</span>
+            </div>
+        </div>
+        
+        <!-- Actions Panel -->
+        <div class="panel" id="actions-panel">
+            <div class="panel-header">
+                <div class="panel-title">Actions</div>
+                <button class="close-panel">×</button>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn clear" id="clear-btn">Clear Canvas</button>
+                <button class="action-btn" id="undo-btn">Undo</button>
+                <button class="action-btn" id="redo-btn">Redo</button>
+                <button class="action-btn save" id="save-btn">Save Drawing</button>
+            </div>
+        </div>
+        
+        <!-- Overlay -->
+        <div class="overlay" id="panel-overlay"></div>
+    </div>
+
+ <script src="script.js"></script>
+ 
+</body>
+</html>
