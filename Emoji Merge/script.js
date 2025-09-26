@@ -73,8 +73,8 @@ class Emoji {
         this.y = y;
         this.level = level;
         this.emoji = emojiLevels[level - 1];
-        // Each level is 33% larger than the previous
-        this.radius = gameSettings.baseEmojiSize / 2 * Math.pow(1.33, level - 1);
+        // Each level is 37% larger than the previous
+        this.radius = gameSettings.baseEmojiSize / 2 * Math.pow(1.37, level - 1);
         this.velocityY = 0;
         this.velocityX = 0;
         this.onGround = false;
