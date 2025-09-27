@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #e0e0e0;
+    padding: 15px;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    max-height: 800px;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+#resetButton {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+    font-weight: 600;
+}
+
+#resetButton:hover, #resetButton:active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+canvas {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    width: 100%;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.win {
+    color: #4ade80;
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.7);
+}
+
+.lose {
+    color: #f87171;
+    text-shadow: 0 0 10px rgba(248, 113, 113, 0.7);
+}
+
+.tie {
+    color: #60a5fa;
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.7);
+}
+
+.turn-indicator {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.your-turn {
+    color: #f87171;
+    text-shadow: 0 0 5px rgba(248, 113, 113, 0.5);
+    box-shadow: 0 0 10px rgba(248, 113, 113, 0.3);
+}
+
+.ai-turn {
+    color: #4ade80;
+    text-shadow: 0 0 5px rgba(74, 222, 128, 0.5);
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+.difficulty {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.difficulty label {
+    font-size: 0.9rem;
+}
+
+.difficulty select {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.difficulty select:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Custom dropdown arrow */
+.difficulty-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.difficulty-wrapper::after {
+    content: "▼";
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.insane-warning {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #f87171;
+    text-align: center;
+    max-width: 300px;
+    opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+    .result {
+        font-size: 1.5rem;
+    }
+    
+    .turn-indicator {
+        font-size: 1rem;
+    }
+}
+
+@media (max-height: 700px) {
+    .container {
+        max-height: 100%;
+    }
+    
+    header {
+        margin-bottom: 10px;
+    }
+    
+    .game-area {
+        justify-content: flex-start;
+    }
+}
