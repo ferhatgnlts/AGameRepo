@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGameRepo - Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button id="resetButton">New Game</button>
+        </header>
+        
+        <div class="game-area">
+            <div class="turn-indicator your-turn" id="turnIndicator">Your Turn (X)</div>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <div class="result" id="result"></div>
+            
+            <div class="difficulty">
+                <label for="aiDifficulty">AI Difficulty:</label>
+                <div class="difficulty-wrapper">
+                    <select id="aiDifficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                        <option value="insane">Insane</option>
+                    </select>
+                </div>
+            </div>
+            <div class="insane-warning" id="insaneWarning">Warning: Insane mode is nearly impossible to beat!</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
